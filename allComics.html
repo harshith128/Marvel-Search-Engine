@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Search Engine</title>
+    <link rel='stylesheet' href="allComics.css" />
+    <link rel="icon" href="./assets/marvel.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Luckiest+Guy&family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="grad-bg1"></div>
+    <div class="grad-bg1 grad-bg2"></div>
+    <div class="grad-bg1 grad-bg3"></div>
+    <span class="prePage" onclick="history.back()"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="font-size:28px;color:rgb(46, 45, 45)"></i></span>
+    <div class="data-div"></div>
+</body>
+</html>
+
+<script>
+
+    const showOneCharacter = (name) => {
+        // console.log(name);
+        sessionStorage.setItem("favoriteCharacter", name);
+        location.href = "characterPage.html";
+    }
+
+    const pageOnLoad = async () => {
+        const response = await fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=6ba99928de47de77f4a65ff5fb4c2f2f&hash=c89ab7d7f03b931523c99c5b4720a39d`);
+        const { data } = await response.json();
+        const { results, offset, limit, total, count } = data;
+        
+        const addToDiv = document.querySelector(".data-div");
+        
+        for(const element of results) {
+            const { name, thumbnail, description } = element;
+
+            const div = document.createElement("div");
+            div.setAttribute("class", "each-comic");
+
+            const image = document.createElement("img");
+            image.setAttribute("class", "image-comic");
+            image.src = thumbnail.path + "." + thumbnail.extension;
+            div.append(image);
+            div.addEventListener('click', showOneCharacter.bind(event, name));
+
+            addToDiv.append(image);
+        }
+    }
+
+    pageOnLoad()
+
+</script>

@@ -1,0 +1,96 @@
+.grad-bg1 {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-40deg, #F0131E 50%, rgb(238, 95, 51) 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+}
+
+.grad-bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+}
+
+.grad-bg3 {
+    animation-duration:5s;
+}
+
+
+.prePage {
+    position: fixed;
+    cursor: pointer;
+    top: 20px;
+    left: 1%;
+}
+
+.cont-charPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+.char-page {
+    width: 35%;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border: 2px solid rgb(46, 45, 45);
+    color: rgb(46, 45, 45);
+    border-radius: 10px;
+}
+
+.char-page > h2 {
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.char-page > p {
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+.char-page:hover {
+    transform: scale(1.01);
+}
+
+.imgDiv {
+    height: 200px;
+    width: 200px;
+    margin: auto;
+}
+
+.imgDiv > img {
+    width: 100%;
+}
+
+.goBack-btn {
+    border: none;
+    background-color: transparent;
+    color: rgb(46, 45, 45);
+    margin-top: 20px;
+    cursor: pointer;
+    border: 2px solid rgb(46, 45, 45);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.goBack-btn:hover {
+    transform: scale(1.02);
+}
+
+@keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }

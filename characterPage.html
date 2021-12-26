@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Search Engine</title>
+    <link rel='stylesheet' href="characterPage.css" />
+    <link rel="icon" href="./assets/marvel.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Luckiest+Guy&family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="grad-bg1"></div>
+    <div class="grad-bg1 grad-bg2"></div>
+    <div class="grad-bg1 grad-bg3"></div>
+    <span class="prePage" onclick="history.back()"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="font-size:28px;color:rgb(46, 45, 45)"></i></span>
+    <section class="cont-charPage">
+        <div class="char-page"></div>
+        <button class="goBack-btn" onclick="history.back()"> Go back </button>
+    </section>
+</body>
+</html>
+
+<script>
+    const favoriteCharacter = sessionStorage.getItem('favoriteCharacter');
+    // console.log(favoriteCharacter);
+
+    const getCharData = async () => {
+        const response = await fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=6ba99928de47de77f4a65ff5fb4c2f2f&hash=c89ab7d7f03b931523c99c5b4720a39d&name=${favoriteCharacter}`);
+        const { data } = await response.json();
+        const { results } = data;
+        // console.log(results);
+
+        const { name, thumbnail, description } = results[0];
+
+        const addData = document.querySelector(".char-page");
+
+        const h2_name = document.createElement("h2");
+        h2_name.innerText = name;
+
+        const p_desc = document.createElement("p");
+        p_desc.innerText = description;
+
+        const image = document.createElement("img");
+        const imgDiv = document.createElement("div");
+        imgDiv.setAttribute("class", "imgDiv");
+        image.src = thumbnail.path + "." + thumbnail.extension;
+        imgDiv.append(image);
+
+        addData.append(h2_name, p_desc, imgDiv);
+
+    }
+
+    if(favoriteCharacter === null){
+        console.log("Empty")
+    } else {
+        getCharData();
+    }
+
+</script>
