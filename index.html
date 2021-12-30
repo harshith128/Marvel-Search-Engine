@@ -17,10 +17,22 @@
     <div class="grad-bg1"></div>
     <div class="grad-bg1 grad-bg2"></div>
     <div class="grad-bg1 grad-bg3"></div>
+    <span class="theme">
+        <audio id="marvelAudio" loop>
+            <source src="" type="audio/ogg">
+            <source src="./assets/MarvelTheme.mp3" type="audio/mpeg">
+        </audio>
+        <span id="play" onclick="playAudio()">
+            <i class="fa fa-volume-off" aria-hidden="true" style="font-size:32px;color:rgb(46, 45, 45)"></i>
+        </span>
+        <span id="pause" onclick="pauseAudio()">
+            <i class="fa fa-volume-up" aria-hidden="true" style="font-size:32px;color:rgb(46, 45, 45)"></i>
+        </span>
+    </span>
     <span class="all-comics" onclick="getAllComics()"><i class="fa fa-bars" aria-hidden="true" style="font-size:28px;color:rgb(46, 45, 45)"></i></span>
     <section class="cont-page">
         <div class="page">
-            <div class="marvel">
+            <div class="marvel" onclick="playAudio()">
                 <img class="marvel-name" src="./assets/MARVELTEXT.svg" />
             </div>
             <div class="content">
@@ -55,7 +67,23 @@
     const dummyPad = document.querySelector(".pad-dummy");
     const dummyBorder = document.querySelector(".border-dummy");
     const noResult = document.querySelector(".noReults");
+    const play = document.getElementById("play");
+    const pause = document.getElementById("pause");
     let timeId
+
+    const marvelTheme = document.getElementById("marvelAudio"); 
+
+    const playAudio = () => { 
+        play.style.display = "none";
+        pause.style.display = "block";
+        marvelTheme.play(); 
+    }  
+
+    const pauseAudio = () => { 
+        play.style.display = "block";
+        pause.style.display = "none";
+        marvelTheme.pause();
+    }
 
     const getAllComics = () => {
         location.href = "./pages/allComics.html";

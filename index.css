@@ -162,6 +162,17 @@ input[type="text"]{
     padding-top: 10px;
 }
 
+.theme {
+    position: fixed;
+    cursor: pointer;
+    top: 20px;
+    left: 95%;
+}
+
+#pause {
+    display: none;
+}
+
 
 @keyframes slide {
     0% {
