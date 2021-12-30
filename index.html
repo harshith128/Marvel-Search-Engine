@@ -55,13 +55,13 @@
     let timeId
 
     const getAllComics = () => {
-        location.href = "allComics.html";
+        location.href = "./pages/allComics.html";
     }
 
     const showOneCharacter = (name) => {
         // console.log(name);
         sessionStorage.setItem("favoriteCharacter", name);
-        location.href = "characterPage.html";
+        location.href = "./pages/characterPage.html";
     }
 
     const searchChar = async (char) => {
