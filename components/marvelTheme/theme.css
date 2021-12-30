@@ -1,0 +1,10 @@
+.theme {
+    position: fixed;
+    cursor: pointer;
+    top: 20px;
+    left: 95%;
+}
+
+#pause {
+    display: none;
+}

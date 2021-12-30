@@ -12,11 +12,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../components//marvelTheme/theme.css">
 </head>
 <body>
     <div class="grad-bg1"></div>
     <div class="grad-bg1 grad-bg2"></div>
     <div class="grad-bg1 grad-bg3"></div>
+    <div id="all-comic-theme"></div>
     <span class="prePage" onclick="history.back()"><i class="fa fa-chevron-circle-left" aria-hidden="true" style="font-size:28px;color:rgb(46, 45, 45)"></i></span>
     <div onclick="history.back()" class="marvel">
         <img onclick="GoTOHome()" class="marvel-name" src="../assets/MARVELTEXT.svg" />
@@ -28,6 +30,13 @@
 </html>
 
 <script type='text/javascript' src='../config.js'></script>
+
+<script type="module">
+    import marvelTheme from "../components/marvelTheme/theme.js";
+    document.getElementById("all-comic-theme").innerHTML = marvelTheme()
+</script>
+
+<script src='../components/marvelTheme/themeScript.js'></script>
 
 <script>
     let apikey = config.MY_API_KEY;
