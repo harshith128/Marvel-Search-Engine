@@ -47,6 +47,7 @@
     display: grid;
     grid-template-columns: 18% 18% 18% 18% 18%;
     gap: 25px;
+    padding-bottom: 50px;
 }
 
 .each-comic {
@@ -70,12 +71,13 @@
     max-height: fit-content;
     width: 16rem;
     margin: auto;
+    border: 5px solid rgb(0, 0, 0);
     overflow: hidden;
+    margin: auto;
     background-color: rgb(46, 45, 45);
     margin-top: 100px;
     margin-left: calc(50% - 8rem);
     color: #C0C0C0;
-    box-shadow: 0 3px 3px 3px rgba(146, 145, 145, 0.5);
   }
 
   .showDiv {
@@ -107,14 +109,26 @@
     position: fixed;
     margin-left: calc(15.5rem - 1rem);
     line-height: 2rem;
+    cursor: pointer;
   }
   
   .close:hover,
   .close:focus {
     color: #F0131E;
     text-decoration: none;
-    cursor: pointer;
   }
+
+  .spinner{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    left: calc(50% - 30px);
+    position: absolute;
+    border: 10px solid gray;
+    border-top-color: black;
+    border-left-color: black;
+    animation: loading 2s infinite linear;
+}
 
   @keyframes slide {
     0% {
@@ -123,4 +137,9 @@
     100% {
       transform:translateX(25%);
     }
+  }
+
+  @keyframes loading{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
   }
