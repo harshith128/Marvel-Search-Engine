@@ -44,7 +44,10 @@
 <!-- <i class="fa fa-volume-off" aria-hidden="true"></i> -->
 <!-- <i class="fa fa-volume-up" aria-hidden="true"></i> -->
 
-<script>
+<script type='text/javascript' src='config.js'></script>
+<script >
+    let apikey = config.MY_API_KEY;
+    let hash = config.MY_HASH;
 
     const addTo = document.querySelector(".char-div");
     const close = document.getElementById("close");
@@ -65,11 +68,7 @@
     }
 
     const searchChar = async (char) => {
-        // const PRIVATE_KEY = "165d1b6bccb70091dd39736ad4ad5587b46a6da1";
-        // const PUBLIC_KEY = "c16b6ade190be1ec11ddc0bede8b2216";
-        // api="6ba99928de47de77f4a65ff5fb4c2f2f";
-        // hash="c89ab7d7f03b931523c99c5b4720a39d";
-        const response = await fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=6ba99928de47de77f4a65ff5fb4c2f2f&hash=c89ab7d7f03b931523c99c5b4720a39d&nameStartsWith=${char}`);
+        const response = await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${apikey}&hash=${hash}&nameStartsWith=${char}`);
         const { data } = await response.json();
 
         return data

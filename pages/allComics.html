@@ -27,7 +27,11 @@
 </body>
 </html>
 
+<script type='text/javascript' src='../config.js'></script>
+
 <script>
+    let apikey = config.MY_API_KEY;
+    let hash = config.MY_HASH;
     const modal = document.querySelector(".comic-modal");
     const modalID = document.getElementById("modalID");
     const spinner = document.querySelector(".spinner");
@@ -90,7 +94,7 @@
     const pageOnLoad = async (page) => {
         hideSpinner()
         let offsetVal = (page - 1) * pageLimit;
-        const response = await fetch(`https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=6ba99928de47de77f4a65ff5fb4c2f2f&hash=c89ab7d7f03b931523c99c5b4720a39d&offset=${offsetVal}&limit=${pageLimit}`);
+        const response = await fetch(`https://gateway.marvel.com:443/v1/public/comics?ts=1&apikey=${apikey}&hash=${hash}&offset=${offsetVal}&limit=${pageLimit}`);
         const { data } = await response.json();
         // console.log(response)
         const { results, offset, limit, total, count } = data;
