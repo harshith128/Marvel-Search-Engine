@@ -32,14 +32,18 @@
     document.getElementById("char-theme").innerHTML = marvelTheme()
 </script>
 
+<script type='text/javascript' src='../config.js'></script>
+
 <script src='../components/marvelTheme/themeScript.js'></script>
 
 <script>
+    let apikey = config.MY_API_KEY;
+    let hash = config.MY_HASH;
     const favoriteCharacter = sessionStorage.getItem('favoriteCharacter');
     // console.log(favoriteCharacter);
 
     const getCharData = async () => {
-        const response = await fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=6ba99928de47de77f4a65ff5fb4c2f2f&hash=c89ab7d7f03b931523c99c5b4720a39d&name=${favoriteCharacter}`);
+        const response = await fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${apikey}&hash=${hash}&name=${favoriteCharacter}`);
         const { data } = await response.json();
         const { results } = data;
         // console.log(results);
