@@ -137,6 +137,11 @@ input[type="text"]{
     border-radius: 10px;
   }
 
+.char-div::-webkit-scrollbar-thumb {
+    background: rgb(46, 45, 45); 
+    border-radius: 10px;
+}
+
   .pad-dummy {
       height: 10px;
       width: 90%;
@@ -151,11 +156,6 @@ input[type="text"]{
       margin: auto;
       display: none;
   }
-
-.char-div::-webkit-scrollbar-thumb {
-    background: rgb(46, 45, 45); 
-    border-radius: 10px;
-}
 
 .noReults {
     text-align: center;
