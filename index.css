@@ -74,6 +74,7 @@ body {
 
 #search-icon {
     padding-left: 10px;
+    cursor: pointer;
 }
 
 .input-div {
@@ -110,7 +111,7 @@ input[type="text"]{
 .char-div {
     max-height: 320px;
     overflow-y: scroll;
-    border: none;
+    border: block;
 }
 
 .char-div > p {

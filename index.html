@@ -29,7 +29,7 @@
                 <div class="input-div">
                     <input class="search" type="text" placeholder="Search here" oninput="handleDebounce(getChar, 1)" />
                     <span id="close" onclick="closeAll()"><i class="fa fa-close" style="font-size:20px;color:#E9463F"></i></span>
-                    <span id="search-icon"><i class="fa fa-search" aria-hidden="true" style="font-size:20px;color:#E9463F"></i></span>
+                    <span onclick="getChar()" id="search-icon"><i class="fa fa-search" aria-hidden="true" style="font-size:20px;color:#E9463F"></i></span>
                 </div>
                 <span class="border-dummy"></span>
                 <div class="char-div"></div>
@@ -101,6 +101,7 @@
         dummyPad.style.display = "none";
 
         const char = inBox.value.trim();
+        // console.log(document.querySelector(".search").value)
         if(char === ""){
             return
         }
@@ -129,6 +130,7 @@
     }
 
     const handleDebounce = (func, delay) => {
+        // console.log(delay)
         if(timeId){
             clearTimeout(timeId);
         }
@@ -137,5 +139,5 @@
         }, delay * 1000);
     }
 
-    handleDebounce(getChar, 0)
+    handleDebounce(getChar, 0);
 </script>
