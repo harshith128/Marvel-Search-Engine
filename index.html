@@ -63,23 +63,7 @@
     const dummyPad = document.querySelector(".pad-dummy");
     const dummyBorder = document.querySelector(".border-dummy");
     const noResult = document.querySelector(".noReults");
-    const play = document.getElementById("play");
-    const pause = document.getElementById("pause");
     let timeId
-
-    const marvelTheme = document.getElementById("marvelAudio"); 
-
-    const playAudio = () => { 
-        play.style.display = "none";
-        pause.style.display = "block";
-        marvelTheme.play(); 
-    }  
-
-    const pauseAudio = () => { 
-        play.style.display = "block";
-        pause.style.display = "none";
-        marvelTheme.pause();
-    }
 
     const getAllComics = () => {
         location.href = "./pages/allComics.html";
