@@ -2,6 +2,8 @@
 
 Marvel is a marvel comics character and comic book search engine app.
 
+![marvel](https://user-images.githubusercontent.com/88575764/148431577-1ef194ee-af55-44c3-bd74-2ead3a76d195.png)
+
 ## Authors
 
 - [harshith128](https://github.com/harshith128)
@@ -25,6 +27,6 @@ Clone the project
 
 ## Features
 
-- Infinite Scrolling
-- Debouncing
-- Modal window
+- Infinite Scrolling.
+- Debouncing.
+- Modal window.
